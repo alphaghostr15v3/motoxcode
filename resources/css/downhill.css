@@ -1,0 +1,216 @@
+:root {
+    --primary-orange: #ff6a00;
+    --primary-cyan: #00d9ff;
+    --dark-bg: #121212;
+    --dark-accent: #1e1e1e;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-muted: #b0b0b0;
+    --neon-shadow-orange: 0 0 15px rgba(255, 106, 0, 0.4);
+    --neon-shadow-cyan: 0 0 15px rgba(0, 217, 255, 0.4);
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Global Section Styles */
+section {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    font-style: italic;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 5px;
+    background: var(--primary-orange);
+    transform: skewX(-20deg);
+}
+
+/* Glassmorphism */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-cyan);
+    box-shadow: var(--neon-shadow-cyan);
+}
+
+/* Slanted Layouts */
+.slanted-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: var(--dark-accent);
+    transform: skewY(-3deg);
+    transform-origin: top left;
+}
+
+/* Hero Modifications */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at 20% 50%, #1a1a1a 0%, #121212 100%);
+}
+
+.hero-title {
+    font-size: 6rem;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-orange);
+    font-style: italic;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.btn-neon-orange {
+    background: var(--primary-orange);
+    color: #fff;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-style: italic;
+    border: none;
+    box-shadow: var(--neon-shadow-orange);
+    transition: all 0.3s ease;
+}
+
+.btn-neon-orange:hover {
+    background: #ff8533;
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.btn-neon-cyan {
+    background: transparent;
+    color: var(--primary-cyan);
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-style: italic;
+    border: 2px solid var(--primary-cyan);
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.btn-neon-cyan:hover {
+    background: var(--primary-cyan);
+    color: #000;
+    box-shadow: var(--neon-shadow-cyan);
+}
+
+/* Image Container */
+.image-container {
+    position: absolute;
+    top: 0;
+    right: -5%;
+    width: 55%;
+    height: 100%;
+    z-index: 5;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* Event Cards */
+.event-card {
+    height: 100%;
+}
+
+.event-date {
+    color: var(--primary-orange);
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+/* Gallery Grid */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.1);
+}
+
+/* Member Avatars */
+.member-card {
+    text-align: center;
+}
+
+.member-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-cyan);
+    margin-bottom: 1rem;
+    object-fit: cover;
+    display: inline-block;
+}
+
+/* Blog Post */
+.blog-card {
+    background: #1e1e1e;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.blog-img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Pagination Dots Custom */
+.dot.active {
+    background: var(--primary-cyan) !important;
+}

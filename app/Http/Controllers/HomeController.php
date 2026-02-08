@@ -1,0 +1,82 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Blog;
+use App\Models\Event;
+use App\Models\GalleryImage;
+use App\Models\Member;
+use App\Models\Rider;
+use App\Models\SafetyRule;
+use App\Models\Setting;
+use App\Models\Testimonial;
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function index()
+    {
+        // Fetch Settings
+        $settings = Setting::pluck('value', 'key')->toArray();
+
+        // Fetch Stats
+        $stats = [
+            'members' => Member::count() + 450, // Real + Offset for design
+            'events' => Event::count() + 100,
+            'miles' => 50000 + (Member::count() * 100)
+        ];
+
+        // Fetch Data
+        $events = Event::where('status', 'upcoming')->orderBy('date', 'asc')->take(3)->get();
+        $gallery = GalleryImage::latest()->take(6)->get();
+        $featuredMembers = Member::take(4)->get();
+        $blogs = Blog::where('is_published', true)->orderBy('published_at', 'desc')->take(3)->get();
+        $safetyRules = SafetyRule::where('is_active', true)->get();
+        $testimonials = Testimonial::where('is_active', true)->take(3)->get();
+        $riders = Rider::orderBy('rank', 'asc')->take(10)->get();
+
+        return view('welcome', compact(
+            'settings', 
+            'stats', 
+            'events', 
+            'gallery', 
+            'featuredMembers', 
+            'blogs', 
+            'safetyRules', 
+            'testimonials',
+            'riders'
+        ));
+    }
+
+    public function about()
+    {
+        $settings = Setting::pluck('value', 'key')->toArray();
+        return view('about', compact('settings'));
+    }
+
+    public function events()
+    {
+        $settings = Setting::pluck('value', 'key')->toArray();
+        $events = Event::orderBy('date', 'asc')->get();
+        return view('events', compact('settings', 'events'));
+    }
+
+    public function gallery()
+    {
+        $settings = Setting::pluck('value', 'key')->toArray();
+        $gallery = GalleryImage::latest()->get();
+        return view('gallery', compact('settings', 'gallery'));
+    }
+
+    public function contact()
+    {
+        $settings = Setting::pluck('value', 'key')->toArray();
+        return view('contact', compact('settings'));
+    }
+
+    public function join()
+    {
+        $settings = Setting::pluck('value', 'key')->toArray();
+        return view('join', compact('settings'));
+    }
+}
