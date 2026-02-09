@@ -29,7 +29,7 @@ class TestimonialController extends Controller
             'image_file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $data = $request->all();
+        $data = $request->except(['_token']);
 
         if ($request->hasFile('image_file')) {
             $file = $request->file('image_file');
@@ -67,7 +67,7 @@ class TestimonialController extends Controller
 
         $testimonial = \App\Models\Testimonial::findOrFail($id);
         
-        $data = $request->all();
+        $data = $request->except(['_token']);
 
         if ($request->hasFile('image_file')) {
             // Delete old file

@@ -14,34 +14,35 @@
     <style>
         :root {
             --primary-red: #ff0000;
-            --bg-black: #000000;
-            --dark-card: #111111;
-            --text-gray: #aaaaaa;
+            --bg-light: #f8f9fa;
+            --light-card: #ffffff;
+            --text-gray: #666666;
+            --text-dark: #1a1a1a;
         }
 
         body {
             font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-black);
-            color: white;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             height: 100vh;
             margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(248,249,250,0.95)), url('https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
         }
 
         .login-card {
-            background: rgba(17, 17, 17, 0.95);
-            border: 1px solid #333;
-            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.98);
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
             width: 100%;
             max-width: 450px;
             padding: 3rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
             backdrop-filter: blur(10px);
         }
 
@@ -68,6 +69,7 @@
         }
 
         .brand-text {
+            color: var(--text-dark);
             font-weight: 900;
             font-style: italic;
             text-transform: uppercase;
@@ -97,19 +99,19 @@
         }
 
         .form-control {
-            background: #1a1a1a;
-            border: 1px solid #333;
-            color: white;
-            border-radius: 2px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            color: var(--text-dark);
+            border-radius: 4px;
             padding: 0.75rem 1rem;
             font-weight: 500;
         }
-
+ 
         .form-control:focus {
-            background: #222;
+            background: #ffffff;
             border-color: var(--primary-red);
-            color: white;
-            box-shadow: none;
+            color: var(--text-dark);
+            box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.05);
         }
 
         .btn-login {
@@ -148,7 +150,7 @@
         }
 
         .back-link:hover {
-            color: white;
+            color: var(--text-dark);
         }
 
         .back-link i {
@@ -156,10 +158,10 @@
         }
 
         .alert-danger {
-            background: rgba(255, 0, 0, 0.1);
+            background: rgba(255, 0, 0, 0.05);
             border: 1px solid var(--primary-red);
-            color: white;
-            border-radius: 2px;
+            color: #d10000;
+            border-radius: 4px;
             font-size: 0.85rem;
             font-weight: 500;
         }

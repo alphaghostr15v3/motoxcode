@@ -1,70 +1,29 @@
 :root {
-    --admin-dark: #000000;
-    --admin-sidebar: #050505;
-    --admin-card: rgba(20, 20, 20, 0.95);
-    --steel-dark: #111111;
-    --primary-red: #ff0000;
-    --primary-gray: #bbbbbb;
-    --text-main: #ffffff;
-    --text-muted: #999999;
-    --neon-red-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
-    --classic-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
-    /* Dynamic theme variables */
-    --nav-bg: rgba(15, 17, 26, 0.85);
-    --card-bg: #161925;
-    --input-bg: rgba(255, 255, 255, 0.03);
-    --input-text: #fff;
-    --stat-val-color: #fff;
-    --text-header: #ffffff;
-    --dropdown-bg: #161925;
-    --dropdown-text: #e1e1e1;
-}
-
-[data-theme="light"] {
-    --admin-dark: #f5f7fb;
+    --admin-dark: #f0f2f5;
     --admin-sidebar: #ffffff;
     --admin-card: #ffffff;
-    --steel-dark: #f0f2f5;
-    --text-main: #2c3e50;
-    --text-muted: #7f8c8d;
-    --glass-border: 1px solid rgba(0, 0, 0, 0.05);
-    --neon-orange-shadow: 0 0 5px rgba(255, 106, 0, 0.2);
-    --neon-cyan-shadow: 0 0 5px rgba(0, 217, 255, 0.2);
-    --classic-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    /* Light theme overrides */
-    --nav-bg: rgba(255, 255, 255, 0.9);
+    --steel-dark: #e9ecef;
+    --primary-red: #cc0000;
+    --primary-gray: #666666;
+    --text-main: #000000;
+    --text-muted: #333333;
+    --neon-red-shadow: 0 0 5px rgba(204, 0, 0, 0.2);
+    --classic-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --glass-border: 1px solid rgba(0, 0, 0, 0.1);
+    /* Light theme variables */
+    --nav-bg: rgba(255, 255, 255, 0.95);
     --card-bg: #ffffff;
-    --input-bg: #f0f2f5;
-    --input-text: #2c3e50;
-    --stat-val-color: #1a1a1a;
-    --text-header: #2c3e50;
+    --input-bg: #f8f9fa;
+    --input-text: #000000;
+    --stat-val-color: #000000;
+    --text-header: #000000;
     --dropdown-bg: #ffffff;
-    --dropdown-text: #2c3e50;
+    --dropdown-text: #000000;
 }
 
-[data-theme="night"] {
-    --admin-dark: #000000;
-    --admin-sidebar: #000000;
-    --admin-card: rgba(20, 20, 20, 0.6);
-    --steel-dark: #0a0a0a;
-    --text-main: #e1e1e1;
-    --text-muted: #8a8d93;
-    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
-    /* Night theme overrides */
-    --nav-bg: #000000;
-    --card-bg: #000000;
-    --input-bg: #111111;
-    --input-text: #fff;
-    --stat-val-color: #fff;
-    --text-header: #ffffff;
-    --dropdown-bg: #000000;
-    --dropdown-text: #e1e1e1;
-    --classic-shadow: none;
-}
 
 body {
-    background: #080808;
+    background: #f4f6f9;
     color: var(--text-main);
     font-family: 'Outfit', sans-serif;
     overflow-x: hidden;
@@ -88,7 +47,7 @@ body {
 .sidebar-brand {
     padding: 1.5rem 2rem;
     border-bottom: var(--glass-border);
-    background: linear-gradient(90deg, rgba(255, 0, 0, 0.05) 0%, transparent 100%);
+    background: #ffffff;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -145,7 +104,7 @@ body {
     margin-left: 260px;
     background: var(--nav-bg);
     /* Slightly more opaque */
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(8px);
     border-bottom: var(--glass-border);
     display: flex;
     align-items: center;
@@ -203,14 +162,14 @@ body {
     right: -15px;
     bottom: -15px;
     font-size: 5rem;
-    color: rgba(255, 255, 255, 0.02);
+    color: rgba(0, 0, 0, 0.03);
     transform: rotate(-15deg);
     transition: all 0.3s ease;
 }
 
 .stat-card:hover .stat-icon-bg {
     transform: rotate(0deg) scale(1.1);
-    color: rgba(255, 255, 255, 0.04);
+    color: rgba(0, 0, 0, 0.06);
 }
 
 .stat-value {
@@ -226,28 +185,54 @@ body {
     letter-spacing: 1px;
     font-size: 0.75rem;
     color: var(--text-muted);
-    font-weight: 600;
+    font-weight: 700;
+    opacity: 0.9;
 }
 
 /* Custom Badge */
 .badge-custom {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.15);
     padding: 0.4em 0.8em;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.5px;
+    color: #000000 !important;
 }
 
 .badge-orange {
-    color: var(--primary-orange);
-    background: rgba(255, 106, 0, 0.1);
-    border-color: rgba(255, 106, 0, 0.2);
+    color: #000000 !important;
+    background: rgba(255, 106, 0, 0.15);
+    border: 1px solid rgba(255, 106, 0, 0.3);
 }
 
 .badge-cyan {
-    color: var(--primary-cyan);
-    background: rgba(0, 217, 255, 0.1);
-    border-color: rgba(0, 217, 255, 0.2);
+    color: #111111 !important;
+    background: rgba(0, 217, 255, 0.15);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+}
+
+.badge-red {
+    color: #000000 !important;
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.badge-secondary {
+    color: #000000 !important;
+    background: rgba(108, 117, 125, 0.1);
+    border: 1px solid rgba(108, 117, 125, 0.2);
+}
+
+.badge-success {
+    color: #000000 !important;
+    background: rgba(40, 167, 69, 0.1);
+    border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+.badge-warning {
+    color: #000000 !important;
+    background: rgba(255, 193, 7, 0.2);
+    border: 1px solid rgba(255, 193, 7, 0.4);
 }
 
 /* Tables */
@@ -276,12 +261,12 @@ body {
 
 .table-custom thead th {
     background: rgba(255, 255, 255, 0.03);
-    color: var(--text-muted);
-    font-weight: 600;
+    color: #000000;
+    font-weight: 700;
     text-transform: uppercase;
     font-size: 0.75rem;
     padding: 1rem 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
     letter-spacing: 1px;
     border-top: none;
 }
@@ -295,8 +280,10 @@ body {
 }
 
 .table-dark {
-    --bs-table-bg: transparent;
-    --bs-table-hover-bg: rgba(255, 255, 255, 0.02);
+    --bs-table-bg: #ffffff;
+    --bs-table-hover-bg: #f8f9fa;
+    --bs-table-color: #000000;
+    --bs-table-border-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Action Buttons */
@@ -315,7 +302,7 @@ body {
 
 .action-btn:hover {
     transform: translateY(-2px);
-    color: #fff;
+    color: #ffffff !important;
 }
 
 .btn-view:hover {
@@ -361,7 +348,7 @@ body {
 }
 
 .search-input::placeholder {
-    color: #5a5d65;
+    color: #888888;
 }
 
 /* Scrollbar */
@@ -375,7 +362,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #2f3442;
+    background: #444a5e;
     border-radius: 3px;
 }
 

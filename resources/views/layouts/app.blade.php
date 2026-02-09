@@ -47,6 +47,7 @@
                     <li class="nav-item px-3"><a class="nav-link" href="{{ route('about') }}">About Us</a></li>
                     <li class="nav-item px-3"><a class="nav-link" href="{{ route('events') }}">Events</a></li>
                     <li class="nav-item px-3"><a class="nav-link" href="{{ route('gallery') }}">Galleries</a></li>
+                    <li class="nav-item px-3"><a class="nav-link" href="{{ route('blogs') }}">Blog</a></li>
                     <li class="nav-item px-3"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
                 </ul>
                 <div class="d-flex align-items-center gap-2">

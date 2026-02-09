@@ -7,6 +7,8 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('h
 Route::get('/about', [\App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::get('/events', [\App\Http\Controllers\HomeController::class, 'events'])->name('events');
 Route::get('/galleries', [\App\Http\Controllers\HomeController::class, 'gallery'])->name('gallery');
+Route::get('/blogs', [\App\Http\Controllers\HomeController::class, 'blogs'])->name('blogs');
+Route::get('/blogs/{slug}', [\App\Http\Controllers\HomeController::class, 'blogDetails'])->name('blogs.show');
 Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 Route::get('/join', [\App\Http\Controllers\HomeController::class, 'join'])->name('join');
 

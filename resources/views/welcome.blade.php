@@ -3,7 +3,7 @@
 @section('content')
 <main id="home">
     <!-- Hero Section -->
-    <section class="hero-section py-0 cinematic-overlay" style="background: url('{{ $settings['hero_image'] ?? 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1920&q=80' }}'); background-size: cover; background-position: center;">
+    <section class="hero-section py-0 cinematic-overlay" style="background: url('{{ isset($settings['hero_image']) ? asset($settings['hero_image']) : 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1920&q=80' }}'); background-size: cover; background-position: center;">
         <div class="container text-center py-5" style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center;">
             <div class="row justify-content-center">
                 <div class="col-lg-10 hero-content">
@@ -89,14 +89,15 @@
                             <span class="month">{{ \Carbon\Carbon::parse($event->date)->format('M') }}</span>
                             <span class="day">{{ \Carbon\Carbon::parse($event->date)->format('d') }}</span>
                         </div>
-                        <img src="{{ asset('uploads/events/' . $event->image) }}" class="event-image" alt="{{ $event->title }}" onerror="this.src='https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&w=800&q=80'">
+                        <img src="{{ $event->image ? asset($event->image) : 'https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&w=800&q=80' }}" class="event-image" alt="{{ $event->title }}">
                         <div class="event-details">
-                            <h4>{{ $event->title }}</h4>
-                            <p class="location">{{ $event->location }}</p>
+                            <h4 class="text-white fw-bold italic text-uppercase">{{ $event->title ?? 'Untitled Event' }}</h4>
+                            <p class="location"><i class="fas fa-map-marker-alt text-primary-red me-2"></i> {{ $event->location }}</p>
+                            <p class="text-muted small mb-0">{{ Str::limit($event->description, 100) }}</p>
                         </div>
                         <div class="event-action">
-                            <a href="{{ route('events.show', $event->id) }}" class="btn-event-action btn-register">Register Now</a>
-                            <a href="{{ route('events.show', $event->id) }}" class="btn-event-action btn-details">More Details</a>
+                            <a href="{{ route('events') }}" class="btn-event-action btn-register">Register Now</a>
+                            <a href="{{ route('events') }}" class="btn-event-action btn-details">More Details</a>
                         </div>
                     </div>
                 </div>

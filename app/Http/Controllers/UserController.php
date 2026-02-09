@@ -28,7 +28,7 @@ class UserController extends Controller
             'password' => 'required|min:8',
         ]);
 
-        $data = $request->all();
+        $data = $request->except(['_token']);
         $data['password'] = \Illuminate\Support\Facades\Hash::make($request->password);
 
         \App\Models\User::create($data);

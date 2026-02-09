@@ -7,7 +7,7 @@
     </div>
     
     @if(session('success'))
-        <div class="alert alert-success bg-success text-white border-0 shadow-lg mb-4">
+        <div class="alert alert-success bg-success text-dark border-0 shadow-lg mb-4">
             <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
         </div>
     @endif
@@ -16,7 +16,7 @@
         <form action="{{ route('admin.settings.update') }}" method="POST">
             @csrf
             
-            <h5 class="text-red mb-4 border-bottom border-secondary pb-2">General Settings</h5>
+            <h5 class="text-red mb-4 border-bottom border-light pb-2">General Settings</h5>
             
             <div class="row g-3">
                 <div class="col-md-6">
@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            <h5 class="text-red mt-5 mb-4 border-bottom border-secondary pb-2">Social Media Links</h5>
+            <h5 class="text-red mt-5 mb-4 border-bottom border-light pb-2">Social Media Links</h5>
             
             <div class="row g-3">
                 <div class="col-md-6">

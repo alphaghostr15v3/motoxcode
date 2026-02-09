@@ -125,7 +125,7 @@
     color: white;
 }
 .form-control::placeholder {
-    color: #444;
+    color: #888;
     font-size: 0.8rem;
     font-weight: 700;
 }

@@ -30,7 +30,7 @@ class BlogController extends Controller
             'image_file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $data = $request->all();
+        $data = $request->except(['_token']);
         
         if ($request->hasFile('image_file')) {
             $file = $request->file('image_file');
@@ -72,7 +72,7 @@ class BlogController extends Controller
 
         $blog = \App\Models\Blog::findOrFail($id);
         
-        $data = $request->all();
+        $data = $request->except(['_token']);
         
         if ($request->hasFile('image_file')) {
             // Delete old file

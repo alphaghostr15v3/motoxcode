@@ -34,7 +34,7 @@ class RiderController extends Controller
             'avatar_file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $data = $request->all();
+        $data = $request->except(['_token']);
 
         if ($request->hasFile('avatar_file')) {
             $file = $request->file('avatar_file');
@@ -69,7 +69,7 @@ class RiderController extends Controller
 
         $rider = \App\Models\Rider::findOrFail($id);
         
-        $data = $request->all();
+        $data = $request->except(['_token']);
 
         if ($request->hasFile('avatar_file')) {
             // Delete old file

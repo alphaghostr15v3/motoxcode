@@ -28,14 +28,14 @@ class MemberController extends Controller
             'role' => 'required',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
-        $data = $request->all();
+        
+        $data = $request->except(['_token', 'photo']);
         
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('uploads'), $filename);
-            $data['photo'] = 'uploads/' . $filename;
+            $data['image'] = 'uploads/' . $filename;
         }
 
         \App\Models\Member::create($data);
@@ -62,21 +62,20 @@ class MemberController extends Controller
             'role' => 'required',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
-        $member = \App\Models\Member::findOrFail($id);
         
-        $data = $request->all();
+        $member = \App\Models\Member::findOrFail($id);
+        $data = $request->except(['_token', 'photo']);
         
         if ($request->hasFile('photo')) {
             // Delete old file
-            if ($member->photo && file_exists(public_path($member->photo))) {
-                unlink(public_path($member->photo));
+            if ($member->image && file_exists(public_path($member->image))) {
+                unlink(public_path($member->image));
             }
             
             $file = $request->file('photo');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('uploads'), $filename);
-            $data['photo'] = 'uploads/' . $filename;
+            $data['image'] = 'uploads/' . $filename;
         }
 
         $member->update($data);
@@ -89,8 +88,8 @@ class MemberController extends Controller
         $member = \App\Models\Member::findOrFail($id);
         
         // Delete physical file
-        if ($member->photo && file_exists(public_path($member->photo))) {
-            unlink(public_path($member->photo));
+        if ($member->image && file_exists(public_path($member->image))) {
+            unlink(public_path($member->image));
         }
         
         $member->delete();

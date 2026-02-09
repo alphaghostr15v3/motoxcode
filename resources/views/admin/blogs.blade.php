@@ -8,7 +8,7 @@
     </div>
     
     @if(session('success'))
-        <div class="alert alert-success bg-success text-white border-0 shadow-lg mb-4">
+        <div class="alert alert-success bg-success text-dark border-0 shadow-lg mb-4">
             <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
         </div>
     @endif
@@ -31,9 +31,9 @@
                         <td>
                             <div class="d-flex align-items-center gap-3">
                                 @if($blog->image)
-                                    <img src="{{ $blog->image }}" alt="Thumbnail" class="rounded-3 border border-secondary object-fit-cover" width="40" height="40">
+                                    <img src="{{ asset($blog->image) }}" alt="Thumbnail" class="rounded-3 border border-secondary object-fit-cover" width="40" height="40">
                                 @else
-                                    <div class="rounded-3 border border-secondary bg-dark d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                    <div class="rounded-3 border border-secondary bg-light d-flex align-items-center justify-content-center overflow-hidden" style="width: 40px; height: 40px;">
                                         <i class="fas fa-image text-muted"></i>
                                     </div>
                                 @endif
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                         </td>
-                        <td class="text-muted small">{{ $blog->author }}</td>
+                        <td class="text-dark small">{{ $blog->author }}</td>
                         <td>
                             @if($blog->is_published)
                                 <span class="badge badge-custom badge-success">Published</span>

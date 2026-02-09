@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid p-0">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold fs-4 m-0 text-white">{{ isset($member) ? 'Edit' : 'Create' }} <span class="text-red italic">Member</span></h2>
+        <h2 class="fw-bold fs-4 m-0 text-dark">{{ isset($member) ? 'Edit' : 'Create' }} <span class="text-red italic">Member</span></h2>
         <a href="{{ route('admin.members') }}" class="btn btn-outline-secondary btn-sm rounded-pill"><i class="fas fa-arrow-left me-2"></i>Back</a>
     </div>
     
@@ -17,28 +17,28 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Full Name</label>
-                    <input type="text" name="name" class="form-control bg-dark border-secondary text-white" value="{{ old('name', $member->name ?? '') }}" required>
+                    <input type="text" name="name" class="form-control admin-input" value="{{ old('name', $member->name ?? '') }}" required>
                 </div>
                 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Profile Photo</label>
                     <input type="file" name="photo" class="form-control admin-input">
-                    @if(isset($member) && $member->photo)
+                    @if(isset($member) && $member->image)
                         <div class="mt-2">
-                            <img src="{{ asset($member->photo) }}" width="60" class="rounded-circle border">
-                            <span class="text-muted small ms-2">Current path: {{ $member->photo }}</span>
+                            <img src="{{ asset($member->image) }}" width="60" class="rounded-circle border">
+                            <span class="text-muted small ms-2">Current path: {{ $member->image }}</span>
                         </div>
                     @endif
                 </div>
                 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Email Address</label>
-                    <input type="email" name="email" class="form-control bg-dark border-secondary text-white" value="{{ old('email', $member->email ?? '') }}" required>
+                    <input type="email" name="email" class="form-control admin-input" value="{{ old('email', $member->email ?? '') }}" required>
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Role</label>
-                    <select name="role" class="form-select bg-dark border-secondary text-white">
+                    <select name="role" class="form-select admin-input">
                         <option value="Member" {{ (old('role', $member->role ?? '') == 'Member') ? 'selected' : '' }}>Member</option>
                         <option value="President" {{ (old('role', $member->role ?? '') == 'President') ? 'selected' : '' }}>President</option>
                         <option value="Vice President" {{ (old('role', $member->role ?? '') == 'Vice President') ? 'selected' : '' }}>Vice President</option>
@@ -48,7 +48,7 @@
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Status</label>
-                    <select name="status" class="form-select bg-dark border-secondary text-white">
+                    <select name="status" class="form-select admin-input">
                         <option value="active" {{ (old('status', $member->status ?? '') == 'active') ? 'selected' : '' }}>Active</option>
                         <option value="inactive" {{ (old('status', $member->status ?? '') == 'inactive') ? 'selected' : '' }}>Inactive</option>
                     </select>
@@ -56,7 +56,7 @@
 
                 <div class="col-12">
                     <label class="form-label text-muted small text-uppercase fw-bold">Bio</label>
-                    <textarea name="bio" class="form-control bg-dark border-secondary text-white" rows="3">{{ old('bio', $member->bio ?? '') }}</textarea>
+                    <textarea name="bio" class="form-control admin-input" rows="3">{{ old('bio', $member->bio ?? '') }}</textarea>
                 </div>
             </div>
 

@@ -8,7 +8,7 @@
     </div>
     
     @if(session('success'))
-        <div class="alert alert-success bg-success text-white border-0 shadow-lg mb-4">
+        <div class="alert alert-success bg-success text-dark border-0 shadow-lg mb-4">
             <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
         </div>
     @endif
@@ -29,7 +29,7 @@
                     @forelse($rules as $rule)
                     <tr>
                         <td class="text-center">
-                            <div class="rounded-circle border border-secondary bg-dark d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            <div class="rounded-circle border border-light bg-light d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
                                 <i class="{{ $rule->icon }} text-red"></i>
                             </div>
                         </td>

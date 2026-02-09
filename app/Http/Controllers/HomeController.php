@@ -74,6 +74,21 @@ class HomeController extends Controller
         return view('contact', compact('settings'));
     }
 
+    public function blogs()
+    {
+        $settings = Setting::pluck('value', 'key')->toArray();
+        $blogs = Blog::where('is_published', true)->orderBy('published_at', 'desc')->paginate(9);
+        return view('blogs', compact('settings', 'blogs'));
+    }
+
+    public function blogDetails($slug)
+    {
+        $settings = Setting::pluck('value', 'key')->toArray();
+        $blog = Blog::where('slug', $slug)->where('is_published', true)->firstOrFail();
+        $recentBlogs = Blog::where('is_published', true)->where('id', '!=', $blog->id)->latest()->take(3)->get();
+        return view('blog_show', compact('settings', 'blog', 'recentBlogs'));
+    }
+
     public function join()
     {
         $settings = Setting::pluck('value', 'key')->toArray();

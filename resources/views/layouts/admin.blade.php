@@ -18,7 +18,7 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-brand">
-            <div class="brand-logomark" style="width: 38px; height: 32px; background: var(--primary-red); clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%); display: flex; align-items: center; justify-content: center; color: white;">
+            <div class="brand-logomark" style="width: 38px; height: 32px; background: var(--primary-red); clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%); display: flex; align-items: center; justify-content: center; color: #ffffff;">
                 <i class="fas fa-motorcycle" style="font-size: 14px; margin-left: -4px;"></i>
             </div>
             <h4 class="fw-black m-0 italic" style="letter-spacing: -1px; line-height: 1;">SUPERBIKE <br><span class="text-red fs-6">COMMUNITY</span></h4>
@@ -86,10 +86,10 @@
         </ul>
         
         <div class="p-3">
-             <div style="background: rgba(255,255,255,0.02); border-radius: 4px; padding: 1rem; border: 1px solid rgba(255,255,255,0.05);">
+             <div style="background: rgba(0,0,0,0.02); border-radius: 4px; padding: 1rem; border: 1px solid rgba(0,0,0,0.05);">
                 <p class="text-muted small mb-2"><i class="fas fa-circle text-red me-2" style="font-size: 8px;"></i>System Status</p>
                 <div class="d-flex justify-content-between align-items-center">
-                    <span class="text-white small fw-bold italic">LIVE</span>
+                    <span class="text-red small fw-bold italic">LIVE</span>
                     <span class="text-muted small">v3.0.0</span>
                 </div>
              </div>
@@ -105,23 +105,10 @@
         </div>
 
         <div class="d-flex align-items-center gap-4">
-            <!-- Theme Toggle -->
-            <div class="dropdown">
-                <div class="cursor-pointer" data-bs-toggle="dropdown">
-                    <i class="fas fa-adjust fs-5 text-muted transition-opacity" id="theme-icon"></i>
-                </div>
-                <ul class="dropdown-menu dropdown-menu-end mt-2 shadow-lg">
-                    <li><h6 class="dropdown-header text-uppercase small">Select Theme</h6></li>
-                    <li><button class="dropdown-item py-2 d-flex align-items-center gap-2" onclick="setTheme('light')"><i class="fas fa-sun text-warning"></i> Light Mode</button></li>
-                    <li><button class="dropdown-item py-2 d-flex align-items-center gap-2" onclick="setTheme('dark')"><i class="fas fa-moon text-primary"></i> Dark Mode</button></li>
-                    <li><button class="dropdown-item py-2 d-flex align-items-center gap-2" onclick="setTheme('night')"><i class="fas fa-star text-header-aware"></i> Night Mode</button></li>
-                </ul>
-            </div>
-
             <!-- Notifications -->
             <div class="position-relative cursor-pointer">
                 <i class="far fa-bell fs-5 text-muted transition-opacity"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-dark" style="font-size: 0.5rem; padding: 0.25em 0.4em;">5</span>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light" style="font-size: 0.5rem; padding: 0.25em 0.4em;">5</span>
             </div>
             
             <!-- Profile Dropdown -->
@@ -132,8 +119,8 @@
                         <p class="m-0 text-red extra-small text-uppercase fw-bold italic">Super Admin</p>
                     </div>
                     <div class="position-relative">
-                        <img src="https://i.pravatar.cc/150?u=admin" class="rounded-circle border border-2 border-dark" width="40" height="40">
-                        <div class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-dark" style="width: 10px; height: 10px;"></div>
+                        <img src="https://i.pravatar.cc/150?u=admin" class="rounded-circle border border-2 border-secondary" width="40" height="40">
+                        <div class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-white" style="width: 10px; height: 10px;"></div>
                     </div>
                 </div>
                 <ul class="dropdown-menu dropdown-menu-end mt-2 shadow-lg">
@@ -157,31 +144,5 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Theme Toggle Script -->
-    <script>
-        // Check local storage or default to dark
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        document.body.setAttribute('data-theme', currentTheme);
-        updateThemeIcon(currentTheme);
-
-        function setTheme(theme) {
-            document.body.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            updateThemeIcon(theme);
-        }
-
-        function updateThemeIcon(theme) {
-            const icon = document.getElementById('theme-icon');
-            icon.className = 'fas fs-5 hover-white transition-opacity'; // Reset base classes
-            if (theme === 'light') {
-                icon.classList.add('fa-sun', 'text-warning');
-            } else if (theme === 'night') {
-                icon.classList.add('fa-star', 'text-white');
-            } else {
-                icon.classList.add('fa-moon', 'text-primary');
-            }
-        }
-    </script>
 </body>
 </html>

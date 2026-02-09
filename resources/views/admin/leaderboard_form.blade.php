@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid p-0">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold fs-4 m-0 text-white">{{ isset($rider) ? 'Edit' : 'Add' }} <span class="text-red italic">Rider</span></h2>
+        <h2 class="fw-bold fs-4 m-0 text-dark">{{ isset($rider) ? 'Edit' : 'Add' }} <span class="text-red italic">Rider</span></h2>
         <a href="{{ route('admin.leaderboard') }}" class="btn btn-outline-secondary btn-sm rounded-pill"><i class="fas fa-arrow-left me-2"></i>Back</a>
     </div>
     
@@ -17,12 +17,12 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Rider Name</label>
-                    <input type="text" name="name" class="form-control bg-dark border-secondary text-white" value="{{ old('name', $rider->name ?? '') }}" required>
+                    <input type="text" name="name" class="form-control admin-input" value="{{ old('name', $rider->name ?? '') }}" required>
                 </div>
                 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Category</label>
-                    <select name="category" class="form-select bg-dark border-secondary text-white">
+                    <select name="category" class="form-select admin-input">
                         <option value="Male" {{ (old('category', $rider->category ?? '') == 'Male') ? 'selected' : '' }}>Male</option>
                         <option value="Female" {{ (old('category', $rider->category ?? '') == 'Female') ? 'selected' : '' }}>Female</option>
                         <option value="Junior" {{ (old('category', $rider->category ?? '') == 'Junior') ? 'selected' : '' }}>Junior</option>
@@ -32,12 +32,12 @@
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Points</label>
-                    <input type="number" name="points" class="form-control bg-dark border-secondary text-white" value="{{ old('points', $rider->points ?? 0) }}" required>
+                    <input type="number" name="points" class="form-control admin-input" value="{{ old('points', $rider->points ?? 0) }}" required>
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Events Participated</label>
-                    <input type="number" name="events_participated" class="form-control bg-dark border-secondary text-white" value="{{ old('events_participated', $rider->events_participated ?? 0) }}">
+                    <input type="number" name="events_participated" class="form-control admin-input" value="{{ old('events_participated', $rider->events_participated ?? 0) }}">
                 </div>
 
                 <div class="col-12">

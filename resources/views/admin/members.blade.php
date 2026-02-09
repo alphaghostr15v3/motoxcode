@@ -8,7 +8,7 @@
     </div>
     
     @if(session('success'))
-        <div class="alert alert-success bg-success text-white border-0 shadow-lg mb-4">
+        <div class="alert alert-success bg-success text-dark border-0 shadow-lg mb-4">
             <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
         </div>
     @endif
@@ -29,8 +29,12 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center gap-3">
-                                <div class="rounded-circle border border-secondary bg-dark d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;">
-                                    <i class="fas fa-user text-muted"></i>
+                                <div class="rounded-circle border border-secondary bg-light d-flex align-items-center justify-content-center overflow-hidden" style="width: 35px; height: 35px;">
+                                    @if($member->image)
+                                        <img src="{{ asset($member->image) }}" class="w-100 h-100 object-fit-cover">
+                                    @else
+                                        <i class="fas fa-user text-muted"></i>
+                                    @endif
                                 </div>
                                 <div>
                                     <p class="m-0 fw-bold text-header-aware small">{{ $member->name }}</p>

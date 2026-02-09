@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid p-0">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold fs-4 m-0 text-white">{{ isset($user) ? 'Edit' : 'Add' }} <span class="text-red italic">User</span></h2>
+        <h2 class="fw-bold fs-4 m-0 text-dark">{{ isset($user) ? 'Edit' : 'Add' }} <span class="text-red italic">User</span></h2>
         <a href="{{ route('admin.users') }}" class="btn btn-outline-secondary btn-sm rounded-pill"><i class="fas fa-arrow-left me-2"></i>Back</a>
     </div>
     
@@ -17,17 +17,17 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Full Name</label>
-                    <input type="text" name="name" class="form-control bg-dark border-secondary text-white" value="{{ old('name', $user->name ?? '') }}" required>
+                    <input type="text" name="name" class="form-control admin-input" value="{{ old('name', $user->name ?? '') }}" required>
                 </div>
                 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Email Address</label>
-                    <input type="email" name="email" class="form-control bg-dark border-secondary text-white" value="{{ old('email', $user->email ?? '') }}" required>
+                    <input type="email" name="email" class="form-control admin-input" value="{{ old('email', $user->email ?? '') }}" required>
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Password {{ isset($user) ? '(Leave blank to keep current)' : '' }}</label>
-                    <input type="password" name="password" class="form-control bg-dark border-secondary text-white" {{ isset($user) ? '' : 'required' }}>
+                    <input type="password" name="password" class="form-control admin-input" {{ isset($user) ? '' : 'required' }}>
                 </div>
             </div>
 

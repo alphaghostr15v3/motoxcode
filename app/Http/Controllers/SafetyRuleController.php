@@ -27,7 +27,7 @@ class SafetyRuleController extends Controller
             'description' => 'required',
         ]);
 
-        $data = $request->all();
+        $data = $request->except(['_token']);
         $data['is_active'] = $request->has('is_active');
         if (empty($data['icon'])) {
             $data['icon'] = 'fas fa-shield-alt';
@@ -58,7 +58,7 @@ class SafetyRuleController extends Controller
 
         $rule = \App\Models\SafetyRule::findOrFail($id);
         
-        $data = $request->all();
+        $data = $request->except(['_token']);
         $data['is_active'] = $request->has('is_active');
          if (empty($data['icon'])) {
             $data['icon'] = 'fas fa-shield-alt';

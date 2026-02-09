@@ -29,7 +29,7 @@ class EventController extends Controller
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $data = $request->all();
+        $data = $request->except(['_token']);
 
         if ($request->hasFile('banner')) {
             $file = $request->file('banner');
@@ -65,7 +65,7 @@ class EventController extends Controller
 
         $event = \App\Models\Event::findOrFail($id);
         
-        $data = $request->all();
+        $data = $request->except(['_token']);
 
         if ($request->hasFile('banner')) {
             // Delete old file

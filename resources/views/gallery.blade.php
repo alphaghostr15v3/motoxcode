@@ -21,10 +21,10 @@
                 @forelse($gallery as $item)
                 <div class="col-md-4 col-sm-6">
                     <div class="gallery-item position-relative overflow-hidden border border-dark">
-                        <img src="{{ $item->image ? asset($item->image) : 'https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&w=800&q=80' }}" alt="{{ $item->title }}" class="img-fluid w-100 gall-img transition-all">
+                        <img src="{{ $item->image_path ? asset($item->image_path) : 'https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&w=800&q=80' }}" alt="{{ $item->caption }}" class="img-fluid w-100 gall-img transition-all">
                         <div class="gallery-overlay d-flex flex-column justify-content-end p-3 transition-all opacity-0 position-absolute top-0 start-0 w-100 h-100">
-                            <h5 class="text-white fw-bold italic text-uppercase mb-1">{{ $item->title }}</h5>
-                            <p class="text-white-50 small mb-0">{{ $item->description }}</p>
+                            <h5 class="text-white fw-bold italic text-uppercase mb-1">{{ $item->caption ?? 'Superbike Moment' }}</h5>
+                            <p class="text-white-50 small mb-0">{{ $item->category ?? 'General' }}</p>
                         </div>
                     </div>
                 </div>

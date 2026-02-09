@@ -129,7 +129,7 @@
     box-shadow: none;
 }
 .form-control::placeholder {
-    color: #555;
+    color: #888;
     font-size: 0.8rem;
     font-style: italic;
     font-weight: 700;

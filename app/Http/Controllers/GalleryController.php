@@ -26,7 +26,7 @@ class GalleryController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $data = $request->all();
+        $data = $request->except(['_token']);
         
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -61,7 +61,7 @@ class GalleryController extends Controller
 
         $image = \App\Models\GalleryImage::findOrFail($id);
         
-        $data = $request->all();
+        $data = $request->except(['_token']);
         
         if ($request->hasFile('image')) {
             // Delete old file

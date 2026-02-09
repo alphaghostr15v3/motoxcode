@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid p-0">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold fs-4 m-0 text-white">{{ isset($image) ? 'Edit' : 'Upload' }} <span class="text-red italic">Photo</span></h2>
+        <h2 class="fw-bold fs-4 m-0 text-dark">{{ isset($image) ? 'Edit' : 'Upload' }} <span class="text-red italic">Photo</span></h2>
         <a href="{{ route('admin.gallery') }}" class="btn btn-outline-secondary btn-sm rounded-pill"><i class="fas fa-arrow-left me-2"></i>Back</a>
     </div>
     
@@ -28,12 +28,12 @@
                 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Caption</label>
-                    <input type="text" name="caption" class="form-control bg-dark border-secondary text-white" value="{{ old('caption', $image->caption ?? '') }}">
+                    <input type="text" name="caption" class="form-control admin-input" value="{{ old('caption', $image->caption ?? '') }}">
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Category</label>
-                    <select name="category" class="form-select bg-dark border-secondary text-white">
+                    <select name="category" class="form-select admin-input">
                         <option value="General" {{ (old('category', $image->category ?? '') == 'General') ? 'selected' : '' }}>General</option>
                         <option value="Events" {{ (old('category', $image->category ?? '') == 'Events') ? 'selected' : '' }}>Events</option>
                         <option value="Rides" {{ (old('category', $image->category ?? '') == 'Rides') ? 'selected' : '' }}>Rides</option>
@@ -44,7 +44,7 @@
                 <div class="col-12">
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" name="is_featured" id="is_featured" {{ old('is_featured', $image->is_featured ?? false) ? 'checked' : '' }}>
-                        <label class="form-check-label text-white" for="is_featured">Featured Image</label>
+                        <label class="form-check-label text-dark" for="is_featured">Featured Image</label>
                     </div>
                 </div>
             </div>

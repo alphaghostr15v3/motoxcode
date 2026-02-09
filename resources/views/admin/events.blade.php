@@ -8,7 +8,7 @@
     </div>
     
     @if(session('success'))
-        <div class="alert alert-success bg-success text-white border-0 shadow-lg mb-4">
+        <div class="alert alert-success bg-success text-dark border-0 shadow-lg mb-4">
             <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
         </div>
     @endif
@@ -30,9 +30,9 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center gap-3">
-                                <div class="rounded-3 border border-secondary bg-dark d-flex align-items-center justify-content-center overflow-hidden" style="width: 40px; height: 40px;">
+                                <div class="rounded-3 border border-secondary bg-light d-flex align-items-center justify-content-center overflow-hidden" style="width: 40px; height: 40px;">
                                     @if($event->image)
-                                        <img src="{{ $event->image }}" alt="Event" class="w-100 h-100 object-fit-cover">
+                                        <img src="{{ asset($event->image) }}" alt="Event" class="w-100 h-100 object-fit-cover">
                                     @else
                                         <i class="fas fa-calendar-alt text-muted"></i>
                                     @endif

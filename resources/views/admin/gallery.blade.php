@@ -8,7 +8,7 @@
     </div>
     
     @if(session('success'))
-        <div class="alert alert-success bg-success text-white border-0 shadow-lg mb-4">
+        <div class="alert alert-success bg-success text-dark border-0 shadow-lg mb-4">
             <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
         </div>
     @endif
@@ -17,7 +17,7 @@
         @forelse($images as $image)
         <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="stat-card p-0 overflow-hidden h-100 position-relative group">
-                <img src="{{ $image->image_path }}" class="w-100 h-100 object-fit-cover" style="min-height: 250px; max-height: 250px;">
+                <img src="{{ asset($image->image_path) }}" class="w-100 h-100 object-fit-cover" style="min-height: 250px; max-height: 250px;">
                 <div class="position-absolute bottom-0 start-0 w-100 p-3 bg-gradient-dark-transparent">
                     <p class="text-white small fw-bold m-0 text-truncate">{{ $image->caption ?? 'No Caption' }}</p>
                     <div class="d-flex justify-content-between align-items-center mt-2">
