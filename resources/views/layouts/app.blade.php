@@ -28,13 +28,9 @@
     <header class="navbar navbar-expand-lg navbar-dark bg-black py-3 sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                <img src="{{ asset('img/logo-icon.png') }}" alt="Logo" class="me-2" style="height: 40px; filter: brightness(1) invert(0);">
-                <div class="lh-1">
-                    <span class="fw-black italic text-uppercase d-block" style="letter-spacing: 0px; font-size: 1.5rem;">
-                        <span class="text-white">{{ $settings['brand_white_text'] ?? 'MOTO' }}</span><span class="text-primary-red">{{ $settings['brand_red_text'] ?? 'X' }}</span>
-                    </span>
-                    <span class="text-primary-red fw-bold italic text-uppercase" style="letter-spacing: 2px; font-size: 0.9rem;">CODE</span>
-                </div>
+                <span class="fw-black italic text-uppercase" style="font-size: 2rem; letter-spacing: -1px; line-height: 1;">
+                    <span class="text-primary-red">MOTO</span><span class="text-white">X</span><span class="text-primary-red">CODE</span>
+                </span>
             </a>
             
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
