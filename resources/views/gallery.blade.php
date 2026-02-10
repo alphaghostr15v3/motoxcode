@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.2/simple-lightbox.min.css" rel="stylesheet">
+
 <main id="gallery-page">
     <!-- Gallery Hero -->
     <section class="hero-section py-0 cinematic-overlay" style="background: url('https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=1920&q=80');">
@@ -17,15 +19,17 @@
         <div class="container">
             <h2 class="section-title text-white mb-5">RECENT <span class="text-primary-red">UPLOADS</span></h2>
             
-            <div class="row g-3">
+            <div class="row g-3 gallery-container">
                 @forelse($gallery as $item)
                 <div class="col-md-4 col-sm-6">
                     <div class="gallery-item position-relative overflow-hidden border border-dark">
-                        <img src="{{ $item->image_path ? asset($item->image_path) : 'https://images.unsplash.com/photo-1558981403-c5f989117622?q=80&w=800&auto=format&fit=crop' }}" alt="{{ $item->caption }}" class="img-fluid w-100 gall-img transition-all">
-                        <div class="gallery-overlay d-flex flex-column justify-content-end p-3 transition-all opacity-0 position-absolute top-0 start-0 w-100 h-100">
-                            <h5 class="text-white fw-bold italic text-uppercase mb-1">{{ $item->caption ?? 'MOTOXCODE Moment' }}</h5>
-                            <p class="text-white-50 small mb-0">{{ $item->category ?? 'General' }}</p>
-                        </div>
+                        <a href="{{ $item->image_path ? asset($item->image_path) : 'https://images.unsplash.com/photo-1558981403-c5f989117622?q=80&w=800&auto=format&fit=crop' }}" class="gallery-link">
+                            <img src="{{ $item->image_path ? asset($item->image_path) : 'https://images.unsplash.com/photo-1558981403-c5f989117622?q=80&w=800&auto=format&fit=crop' }}" alt="{{ $item->caption }}" class="img-fluid w-100 gall-img transition-all">
+                            <div class="gallery-overlay d-flex flex-column justify-content-end p-3 transition-all opacity-0 position-absolute top-0 start-0 w-100 h-100">
+                                <h5 class="text-white fw-bold italic text-uppercase mb-1">{{ $item->caption ?? 'MOTOXCODE Moment' }}</h5>
+                                <p class="text-white-50 small mb-0">{{ $item->category ?? 'General' }}</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 @empty
@@ -53,6 +57,18 @@
     </section>
 </main>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.2/simple-lightbox.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var lightbox = new SimpleLightbox('.gallery-container .gallery-link', { 
+            captionsData: 'alt',
+            captionDelay: 250,
+            overlayOpacity: 0.9,
+            animationSpeed: 200,
+        });
+    });
+</script>
+
 <style>
 .gallery-item:hover .gall-img {
     transform: scale(1.1);
@@ -67,6 +83,12 @@
 }
 .transition-all {
     transition: all 0.4s ease;
+}
+/* Ensure overlay sits on top of link */
+.gallery-link {
+    display: block;
+    position: relative;
+    height: 100%;
 }
 </style>
 @endsection
