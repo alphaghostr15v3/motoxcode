@@ -70,6 +70,11 @@
                     <i class="fas fa-envelope"></i> Messages
                 </a>
             </li>
+            <li class="sidebar-item {{ request()->routeIs('admin.join-requests') ? 'active' : '' }}">
+                <a href="{{ route('admin.join-requests.index') }}" class="sidebar-link">
+                    <i class="fas fa-user-plus"></i> Join Requests
+                </a>
+            </li>
             
             <li class="mt-4 mb-2 px-4 text-muted small fw-bold text-uppercase" style="font-size: 0.7rem; letter-spacing: 1px;">System</li>
             

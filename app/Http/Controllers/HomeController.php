@@ -120,8 +120,15 @@ class HomeController extends Controller
             'bio' => 'nullable|string',
         ]);
 
-        // Logic to store join request would go here (e.g. database or email)
-        // For now, just a success message as requested
+        // Create the join request
+        \App\Models\JoinRequest::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'machine' => $request->machine,
+            'level' => $request->level,
+            'bio' => $request->bio,
+            'status' => 'pending'
+        ]);
 
         return redirect()->back()->with('success', 'Request submitted successfully! We will contact you shortly.');
     }

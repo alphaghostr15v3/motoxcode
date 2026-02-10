@@ -108,6 +108,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         'update' => 'admin.users.update',
         'destroy' => 'admin.users.destroy',
     ]);
+    Route::resource('join-requests', \App\Http\Controllers\JoinRequestController::class)->only(['index', 'destroy'])->names([
+        'index' => 'admin.join-requests.index',
+        'destroy' => 'admin.join-requests.destroy',
+    ]);
 });
 
 // Member Routes
