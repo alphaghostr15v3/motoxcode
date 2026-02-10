@@ -17,13 +17,14 @@
             <div class="row g-3">
                 <div class="col-12">
                     <label class="form-label text-muted small text-uppercase fw-bold">{{ isset($image) ? 'Change Photo' : 'Choose Photo' }}</label>
-                    <input type="file" name="image" class="form-control admin-input" {{ isset($image) ? '' : 'required' }}>
+                    <input type="file" name="image" class="form-control admin-input @error('image') is-invalid @enderror" {{ isset($image) ? '' : 'required' }}>
                     @if(isset($image))
                         <div class="mt-2">
                             <img src="{{ asset($image->image_path) }}" width="100" class="rounded border">
                             <span class="text-muted small ms-2">Current path: {{ $image->image_path }}</span>
                         </div>
                     @endif
+                    @error('image') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
                 
                 <div class="col-md-6">

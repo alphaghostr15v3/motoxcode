@@ -23,8 +23,8 @@ class SafetyRuleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
         ]);
 
         $data = $request->except(['_token']);
@@ -52,8 +52,8 @@ class SafetyRuleController extends Controller
     public function update(Request $request, string $id)
     {
          $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
         ]);
 
         $rule = \App\Models\SafetyRule::findOrFail($id);

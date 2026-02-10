@@ -41,6 +41,12 @@ class AdminController extends Controller
 
     public function updateSettings(Request $request)
     {
+        $request->validate([
+            'site_title' => 'required|string|max:255',
+            'contact_email' => 'required|email',
+            'membership_fee' => 'required|numeric|min:0',
+        ]);
+        
         $data = $request->except('_token');
         foreach ($data as $key => $value) {
             \App\Models\Setting::updateOrCreate(['key' => $key], ['value' => $value]);

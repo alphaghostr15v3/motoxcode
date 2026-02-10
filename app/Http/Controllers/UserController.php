@@ -23,9 +23,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:8',
+            'password' => 'required|string|min:8',
         ]);
 
         $data = $request->except(['_token']);
@@ -50,8 +50,9 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,'.$id,
+            'password' => 'nullable|string|min:8',
         ]);
 
         $user = \App\Models\User::findOrFail($id);

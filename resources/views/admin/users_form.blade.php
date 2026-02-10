@@ -17,17 +17,20 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Full Name</label>
-                    <input type="text" name="name" class="form-control admin-input" value="{{ old('name', $user->name ?? '') }}" required>
+                    <input type="text" name="name" class="form-control admin-input @error('name') is-invalid @enderror" value="{{ old('name', $user->name ?? '') }}" required>
+                    @error('name') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
                 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Email Address</label>
-                    <input type="email" name="email" class="form-control admin-input" value="{{ old('email', $user->email ?? '') }}" required>
+                    <input type="email" name="email" class="form-control admin-input @error('email') is-invalid @enderror" value="{{ old('email', $user->email ?? '') }}" required>
+                    @error('email') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Password {{ isset($user) ? '(Leave blank to keep current)' : '' }}</label>
-                    <input type="password" name="password" class="form-control admin-input" {{ isset($user) ? '' : 'required' }}>
+                    <input type="password" name="password" class="form-control admin-input @error('password') is-invalid @enderror" {{ isset($user) ? '' : 'required' }}>
+                    @error('password') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
             </div>
 

@@ -17,21 +17,24 @@
             <div class="row g-3">
                 <div class="col-md-8">
                     <label class="form-label text-muted small text-uppercase fw-bold">Event Title</label>
-                    <input type="text" name="title" class="form-control admin-input" value="{{ old('title', $event->title ?? '') }}" required>
+                    <input type="text" name="title" class="form-control admin-input @error('title') is-invalid @enderror" value="{{ old('title', $event->title ?? '') }}" required>
+                    @error('title') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-md-4">
                      <label class="form-label text-muted small text-uppercase fw-bold">Status</label>
-                    <select name="status" class="form-select admin-input">
+                    <select name="status" class="form-select admin-input @error('status') is-invalid @enderror">
                         <option value="upcoming" {{ (old('status', $event->status ?? '') == 'upcoming') ? 'selected' : '' }}>Upcoming</option>
                         <option value="completed" {{ (old('status', $event->status ?? '') == 'completed') ? 'selected' : '' }}>Completed</option>
                         <option value="cancelled" {{ (old('status', $event->status ?? '') == 'cancelled') ? 'selected' : '' }}>Cancelled</option>
                     </select>
+                    @error('status') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
                 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Date & Time</label>
-                    <input type="datetime-local" name="date" class="form-control admin-input" value="{{ old('date', isset($event) ? $event->date->format('Y-m-d\TH:i') : '') }}" required>
+                    <input type="datetime-local" name="date" class="form-control admin-input @error('date') is-invalid @enderror" value="{{ old('date', isset($event) ? $event->date->format('Y-m-d\TH:i') : '') }}" required>
+                    @error('date') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-md-6">
@@ -41,13 +44,14 @@
 
                 <div class="col-12">
                     <label class="form-label text-muted small text-uppercase fw-bold">Event Banner</label>
-                    <input type="file" name="banner" class="form-control admin-input">
+                    <input type="file" name="banner" class="form-control admin-input @error('banner') is-invalid @enderror">
                     @if(isset($event) && $event->image)
                         <div class="mt-2">
                             <img src="{{ asset($event->image) }}" width="150" class="rounded border">
                             <span class="text-muted small ms-2">Current path: {{ $event->image }}</span>
                         </div>
                     @endif
+                    @error('banner') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-12">

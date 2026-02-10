@@ -17,17 +17,20 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Rule Title</label>
-                    <input type="text" name="title" class="form-control admin-input" value="{{ old('title', $rule->title ?? '') }}" required>
+                    <input type="text" name="title" class="form-control admin-input @error('title') is-invalid @enderror" value="{{ old('title', $rule->title ?? '') }}" required>
+                    @error('title') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
                 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Icon Class (FontAwesome)</label>
-                    <input type="text" name="icon" class="form-control admin-input" value="{{ old('icon', $rule->icon ?? 'fas fa-shield-alt') }}">
+                    <input type="text" name="icon" class="form-control admin-input @error('icon') is-invalid @enderror" value="{{ old('icon', $rule->icon ?? 'fas fa-shield-alt') }}">
+                    @error('icon') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-12">
                     <label class="form-label text-muted small text-uppercase fw-bold">Description</label>
-                    <textarea name="description" class="form-control admin-input" rows="4" required>{{ old('description', $rule->description ?? '') }}</textarea>
+                    <textarea name="description" class="form-control admin-input @error('description') is-invalid @enderror" rows="4" required>{{ old('description', $rule->description ?? '') }}</textarea>
+                    @error('description') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-12">

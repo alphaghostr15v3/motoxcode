@@ -17,33 +17,38 @@
             <div class="row g-3">
                 <div class="col-md-8">
                     <label class="form-label text-muted small text-uppercase fw-bold">Title</label>
-                    <input type="text" name="title" class="form-control admin-input" value="{{ old('title', $blog->title ?? '') }}" required>
+                    <input type="text" name="title" class="form-control admin-input @error('title') is-invalid @enderror" value="{{ old('title', $blog->title ?? '') }}" required>
+                    @error('title') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
                 
                 <div class="col-md-4">
                     <label class="form-label text-muted small text-uppercase fw-bold">Slug</label>
-                    <input type="text" name="slug" class="form-control admin-input" value="{{ old('slug', $blog->slug ?? '') }}" required>
+                    <input type="text" name="slug" class="form-control admin-input @error('slug') is-invalid @enderror" value="{{ old('slug', $blog->slug ?? '') }}" required>
+                    @error('slug') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Author</label>
-                    <input type="text" name="author" class="form-control admin-input" value="{{ old('author', $blog->author ?? 'Admin') }}" required>
+                    <input type="text" name="author" class="form-control admin-input @error('author') is-invalid @enderror" value="{{ old('author', $blog->author ?? 'Admin') }}" required>
+                    @error('author') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Post Image</label>
-                    <input type="file" name="image_file" class="form-control admin-input">
+                    <input type="file" name="image_file" class="form-control admin-input @error('image_file') is-invalid @enderror">
                     @if(isset($blog) && $blog->image)
                         <div class="mt-2">
                             <img src="{{ asset($blog->image) }}" width="100" class="rounded border">
                             <span class="text-muted small ms-2">Current path: {{ $blog->image }}</span>
                         </div>
                     @endif
+                    @error('image_file') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-12">
                     <label class="form-label text-muted small text-uppercase fw-bold">Content</label>
-                    <textarea name="content" class="form-control admin-input" rows="10" required>{{ old('content', $blog->content ?? '') }}</textarea>
+                    <textarea name="content" class="form-control admin-input @error('content') is-invalid @enderror" rows="10" required>{{ old('content', $blog->content ?? '') }}</textarea>
+                    @error('content') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-12">

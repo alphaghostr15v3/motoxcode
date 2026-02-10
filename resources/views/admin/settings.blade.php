@@ -21,17 +21,20 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Site Title</label>
-                    <input type="text" name="site_title" class="form-control admin-input" value="{{ $settings['site_title'] ?? 'MotoXcode' }}">
+                    <input type="text" name="site_title" class="form-control admin-input @error('site_title') is-invalid @enderror" value="{{ $settings['site_title'] ?? 'MotoXcode' }}">
+                    @error('site_title') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
                 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Contact Email</label>
-                    <input type="email" name="contact_email" class="form-control admin-input" value="{{ $settings['contact_email'] ?? 'admin@motoxcode.com' }}">
+                    <input type="email" name="contact_email" class="form-control admin-input @error('contact_email') is-invalid @enderror" value="{{ $settings['contact_email'] ?? 'admin@motoxcode.com' }}">
+                    @error('contact_email') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-12">
                     <label class="form-label text-muted small text-uppercase fw-bold">Site Description</label>
-                    <textarea name="site_description" class="form-control admin-input" rows="3">{{ $settings['site_description'] ?? '' }}</textarea>
+                    <textarea name="site_description" class="form-control admin-input @error('site_description') is-invalid @enderror" rows="3">{{ $settings['site_description'] ?? '' }}</textarea>
+                    @error('site_description') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
             </div>
 

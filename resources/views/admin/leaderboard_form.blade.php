@@ -17,38 +17,43 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Rider Name</label>
-                    <input type="text" name="name" class="form-control admin-input" value="{{ old('name', $rider->name ?? '') }}" required>
+                    <input type="text" name="name" class="form-control admin-input @error('name') is-invalid @enderror" value="{{ old('name', $rider->name ?? '') }}" required>
+                    @error('name') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
                 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Category</label>
-                    <select name="category" class="form-select admin-input">
+                    <select name="category" class="form-select admin-input @error('category') is-invalid @enderror">
                         <option value="Male" {{ (old('category', $rider->category ?? '') == 'Male') ? 'selected' : '' }}>Male</option>
                         <option value="Female" {{ (old('category', $rider->category ?? '') == 'Female') ? 'selected' : '' }}>Female</option>
                         <option value="Junior" {{ (old('category', $rider->category ?? '') == 'Junior') ? 'selected' : '' }}>Junior</option>
                         <option value="Senior" {{ (old('category', $rider->category ?? '') == 'Senior') ? 'selected' : '' }}>Senior</option>
                     </select>
+                    @error('category') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Points</label>
-                    <input type="number" name="points" class="form-control admin-input" value="{{ old('points', $rider->points ?? 0) }}" required>
+                    <input type="number" name="points" class="form-control admin-input @error('points') is-invalid @enderror" value="{{ old('points', $rider->points ?? 0) }}" required>
+                    @error('points') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Events Participated</label>
-                    <input type="number" name="events_participated" class="form-control admin-input" value="{{ old('events_participated', $rider->events_participated ?? 0) }}">
+                    <input type="number" name="events_participated" class="form-control admin-input @error('events_participated') is-invalid @enderror" value="{{ old('events_participated', $rider->events_participated ?? 0) }}">
+                    @error('events_participated') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-12">
                     <label class="form-label text-muted small text-uppercase fw-bold">Rider Photo</label>
-                    <input type="file" name="avatar_file" class="form-control admin-input">
+                    <input type="file" name="avatar_file" class="form-control admin-input @error('avatar_file') is-invalid @enderror">
                     @if(isset($rider) && $rider->avatar)
                         <div class="mt-2">
                             <img src="{{ asset($rider->avatar) }}" width="80" class="rounded border">
                             <span class="text-muted small ms-2">Current path: {{ $rider->avatar }}</span>
                         </div>
                     @endif
+                    @error('avatar_file') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
             </div>
 

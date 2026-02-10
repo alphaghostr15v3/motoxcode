@@ -23,8 +23,8 @@ class TestimonialController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'message' => 'required',
+            'name' => 'required|string|max:255',
+            'message' => 'required|string',
             'rating' => 'required|integer|min:1|max:5',
             'image_file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -59,8 +59,8 @@ class TestimonialController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required',
-            'message' => 'required',
+            'name' => 'required|string|max:255',
+            'message' => 'required|string',
             'rating' => 'required|integer|min:1|max:5',
             'image_file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);

@@ -23,11 +23,12 @@ class MemberController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:members',
-            'role' => 'required',
-            'password' => 'required|min:6',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:members,email',
+            'role' => 'required|string|in:Member,President,Vice President,Secretary',
+            'password' => 'required|string|min:6',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'status' => 'required|in:active,inactive',
         ]);
         
         $data = $request->except(['_token', 'photo']);
@@ -60,11 +61,12 @@ class MemberController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|string|max:255',
             'email' => 'required|email|unique:members,email,'.$id,
-            'role' => 'required',
-            'password' => 'nullable|min:6',
+            'role' => 'required|string|in:Member,President,Vice President,Secretary',
+            'password' => 'nullable|string|min:6',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'status' => 'required|in:active,inactive',
         ]);
         
         $member = \App\Models\Member::findOrFail($id);

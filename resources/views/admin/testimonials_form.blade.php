@@ -17,39 +17,44 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Client Name</label>
-                    <input type="text" name="name" class="form-control admin-input" value="{{ old('name', $testimonial->name ?? '') }}" required>
+                    <input type="text" name="name" class="form-control admin-input @error('name') is-invalid @enderror" value="{{ old('name', $testimonial->name ?? '') }}" required>
+                    @error('name') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
                 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Role / Title</label>
-                    <input type="text" name="role" class="form-control admin-input" value="{{ old('role', $testimonial->role ?? '') }}" placeholder="e.g. Member, CEO">
+                    <input type="text" name="role" class="form-control admin-input @error('role') is-invalid @enderror" value="{{ old('role', $testimonial->role ?? '') }}" placeholder="e.g. Member, CEO">
+                    @error('role') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Rating (1-5)</label>
-                    <select name="rating" class="form-select admin-input">
+                    <select name="rating" class="form-select admin-input @error('rating') is-invalid @enderror">
                         <option value="5" {{ (old('rating', $testimonial->rating ?? 5) == 5) ? 'selected' : '' }}>5 Stars</option>
                         <option value="4" {{ (old('rating', $testimonial->rating ?? 5) == 4) ? 'selected' : '' }}>4 Stars</option>
                         <option value="3" {{ (old('rating', $testimonial->rating ?? 5) == 3) ? 'selected' : '' }}>3 Stars</option>
                         <option value="2" {{ (old('rating', $testimonial->rating ?? 5) == 2) ? 'selected' : '' }}>2 Stars</option>
                         <option value="1" {{ (old('rating', $testimonial->rating ?? 5) == 1) ? 'selected' : '' }}>1 Star</option>
                     </select>
+                    @error('rating') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Client Photo</label>
-                    <input type="file" name="image_file" class="form-control admin-input">
+                    <input type="file" name="image_file" class="form-control admin-input @error('image_file') is-invalid @enderror">
                     @if(isset($testimonial) && $testimonial->image)
                         <div class="mt-2">
                             <img src="{{ asset($testimonial->image) }}" width="60" class="rounded-circle border">
                             <span class="text-muted small ms-2">Current path: {{ $testimonial->image }}</span>
                         </div>
                     @endif
+                    @error('image_file') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-12">
                     <label class="form-label text-muted small text-uppercase fw-bold">Message</label>
-                    <textarea name="message" class="form-control admin-input" rows="4" required>{{ old('message', $testimonial->message ?? '') }}</textarea>
+                    <textarea name="message" class="form-control admin-input @error('message') is-invalid @enderror" rows="4" required>{{ old('message', $testimonial->message ?? '') }}</textarea>
+                    @error('message') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-12">

@@ -17,46 +17,52 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Full Name</label>
-                    <input type="text" name="name" class="form-control admin-input" value="{{ old('name', $member->name ?? '') }}" required>
+                    <input type="text" name="name" class="form-control admin-input @error('name') is-invalid @enderror" value="{{ old('name', $member->name ?? '') }}" required>
+                    @error('name') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
                 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Profile Photo</label>
-                    <input type="file" name="photo" class="form-control admin-input">
+                    <input type="file" name="photo" class="form-control admin-input @error('photo') is-invalid @enderror">
                     @if(isset($member) && $member->image)
                         <div class="mt-2">
                             <img src="{{ asset($member->image) }}" width="60" class="rounded-circle border">
                             <span class="text-muted small ms-2">Current path: {{ $member->image }}</span>
                         </div>
                     @endif
+                    @error('photo') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
                 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Email Address</label>
-                    <input type="email" name="email" class="form-control admin-input" value="{{ old('email', $member->email ?? '') }}" required>
+                    <input type="email" name="email" class="form-control admin-input @error('email') is-invalid @enderror" value="{{ old('email', $member->email ?? '') }}" required>
+                    @error('email') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Role</label>
-                    <select name="role" class="form-select admin-input">
+                    <select name="role" class="form-select admin-input @error('role') is-invalid @enderror">
                         <option value="Member" {{ (old('role', $member->role ?? '') == 'Member') ? 'selected' : '' }}>Member</option>
                         <option value="President" {{ (old('role', $member->role ?? '') == 'President') ? 'selected' : '' }}>President</option>
                         <option value="Vice President" {{ (old('role', $member->role ?? '') == 'Vice President') ? 'selected' : '' }}>Vice President</option>
                         <option value="Secretary" {{ (old('role', $member->role ?? '') == 'Secretary') ? 'selected' : '' }}>Secretary</option>
                     </select>
+                    @error('role') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Status</label>
-                    <select name="status" class="form-select admin-input">
+                    <select name="status" class="form-select admin-input @error('status') is-invalid @enderror">
                         <option value="active" {{ (old('status', $member->status ?? '') == 'active') ? 'selected' : '' }}>Active</option>
                         <option value="inactive" {{ (old('status', $member->status ?? '') == 'inactive') ? 'selected' : '' }}>Inactive</option>
                     </select>
+                    @error('status') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label text-muted small text-uppercase fw-bold">Password {{ isset($member) ? '(Leave blank to keep current)' : '' }}</label>
-                    <input type="password" name="password" class="form-control admin-input" {{ isset($member) ? '' : 'required' }}>
+                    <input type="password" name="password" class="form-control admin-input @error('password') is-invalid @enderror" {{ isset($member) ? '' : 'required' }}>
+                    @error('password') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-12">

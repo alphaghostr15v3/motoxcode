@@ -29,8 +29,8 @@ class RiderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'points' => 'required|numeric',
+            'name' => 'required|string|max:255',
+            'points' => 'required|integer|min:0',
             'avatar_file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -62,8 +62,8 @@ class RiderController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required',
-            'points' => 'required|numeric',
+            'name' => 'required|string|max:255',
+            'points' => 'required|integer|min:0',
             'avatar_file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
