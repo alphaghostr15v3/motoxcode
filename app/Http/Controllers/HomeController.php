@@ -54,10 +54,18 @@ class HomeController extends Controller
         return view('about', compact('settings'));
     }
 
-    public function events()
+    public function events(Request $request)
     {
         $settings = Setting::pluck('value', 'key')->toArray();
-        $events = Event::orderBy('date', 'asc')->get();
+        
+        $query = Event::orderBy('date', 'asc');
+
+        if ($request->has('category') && $request->category != 'All') {
+            $query->where('category', $request->category);
+        }
+
+        $events = $query->get();
+        
         return view('events', compact('settings', 'events'));
     }
 

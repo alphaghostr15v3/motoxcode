@@ -18,10 +18,10 @@
             <div class="d-flex justify-content-between align-items-center mb-5">
                 <h2 class="section-title text-white">UPCOMING <span class="text-primary-red">ACTIVITIES</span></h2>
                 <div class="btn-group">
-                    <button class="btn btn-outline-secondary btn-sm active">All</button>
-                    <button class="btn btn-outline-secondary btn-sm">Track Days</button>
-                    <button class="btn btn-outline-secondary btn-sm">Tours</button>
-                    <button class="btn btn-outline-secondary btn-sm">Meets</button>
+                    <a href="{{ route('events', ['category' => 'All']) }}" class="btn btn-outline-secondary btn-sm {{ request('category') == 'All' || !request('category') ? 'active' : '' }}">All</a>
+                    <a href="{{ route('events', ['category' => 'Track Day']) }}" class="btn btn-outline-secondary btn-sm {{ request('category') == 'Track Day' ? 'active' : '' }}">Track Days</a>
+                    <a href="{{ route('events', ['category' => 'Tour']) }}" class="btn btn-outline-secondary btn-sm {{ request('category') == 'Tour' ? 'active' : '' }}">Tours</a>
+                    <a href="{{ route('events', ['category' => 'Meet']) }}" class="btn btn-outline-secondary btn-sm {{ request('category') == 'Meet' ? 'active' : '' }}">Meets</a>
                 </div>
             </div>
 
