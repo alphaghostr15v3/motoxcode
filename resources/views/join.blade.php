@@ -61,33 +61,41 @@
                         </div>
                         <!-- Right Form Panel -->
                         <div class="col-md-8 p-5">
-                            <form action="#" method="POST" class="auth-form">
+                            @if(session('success'))
+                                <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+                                    {{ session('success') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+
+                            <form action="{{ route('join.submit') }}" method="POST" class="auth-form">
+                                @csrf
                                 <div class="row g-4">
                                     <div class="col-md-6">
                                         <label class="form-label text-uppercase fw-bold italic text-white-50 small">Full Name</label>
-                                        <input type="text" class="form-control" placeholder="YOUR NAME" required>
+                                        <input type="text" name="name" class="form-control" placeholder="YOUR NAME" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label text-uppercase fw-bold italic text-white-50 small">Email Address</label>
-                                        <input type="email" class="form-control" placeholder="RIDER@EMAIL.COM" required>
+                                        <input type="email" name="email" class="form-control" placeholder="RIDER@EMAIL.COM" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label text-uppercase fw-bold italic text-white-50 small">Your Machine</label>
-                                        <input type="text" class="form-control" placeholder="E.G. BMW S1000RR" required>
+                                        <input type="text" name="machine" class="form-control" placeholder="E.G. BMW S1000RR" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label text-uppercase fw-bold italic text-white-50 small">Riding Level</label>
-                                        <select class="form-select">
+                                        <select name="level" class="form-select">
                                             <option selected disabled>SELECT LEVEL</option>
-                                            <option>Beginner (0-1 Years)</option>
-                                            <option>Intermediate (1-5 Years)</option>
-                                            <option>Advanced (5+ Years)</option>
-                                            <option>Pro / Track Expert</option>
+                                            <option value="Beginner">Beginner (0-1 Years)</option>
+                                            <option value="Intermediate">Intermediate (1-5 Years)</option>
+                                            <option value="Advanced">Advanced (5+ Years)</option>
+                                            <option value="Pro">Pro / Track Expert</option>
                                         </select>
                                     </div>
                                     <div class="col-12">
                                         <label class="form-label text-uppercase fw-bold italic text-white-50 small">Tell Us About Yourself</label>
-                                        <textarea class="form-control" rows="3" placeholder="YOUR PASSION, YOUR STORY..."></textarea>
+                                        <textarea name="bio" class="form-control" rows="3" placeholder="YOUR PASSION, YOUR STORY..."></textarea>
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-superbike w-100 py-3">Submit Registration Request</button>

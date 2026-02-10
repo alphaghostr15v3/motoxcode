@@ -109,4 +109,20 @@ class HomeController extends Controller
         $settings = Setting::pluck('value', 'key')->toArray();
         return view('join', compact('settings'));
     }
+
+    public function storeJoin(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'machine' => 'required|string|max:255',
+            'level' => 'required|string',
+            'bio' => 'nullable|string',
+        ]);
+
+        // Logic to store join request would go here (e.g. database or email)
+        // For now, just a success message as requested
+
+        return redirect()->back()->with('success', 'Request submitted successfully! We will contact you shortly.');
+    }
 }

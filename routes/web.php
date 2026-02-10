@@ -12,6 +12,7 @@ Route::get('/blogs/{slug}', [\App\Http\Controllers\HomeController::class, 'blogD
 Route::get('/testimonials', [\App\Http\Controllers\HomeController::class, 'testimonials'])->name('testimonials');
 Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 Route::get('/join', [\App\Http\Controllers\HomeController::class, 'join'])->name('join');
+Route::post('/join', [\App\Http\Controllers\HomeController::class, 'storeJoin'])->name('join.submit');
 
 Route::get('/login', [\App\Http\Controllers\Member\MemberAuthController::class, 'showLoginForm'])->name('login');
 
