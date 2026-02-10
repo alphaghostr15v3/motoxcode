@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $settings['site_title'] ?? 'Superbike Community - Ride Group' }}</title>
+    <title>{{ $settings['site_title'] ?? 'MOTOXCODE - Ride Group' }}</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,9 +31,9 @@
                 <img src="{{ asset('img/logo-icon.png') }}" alt="Logo" class="me-2" style="height: 40px; filter: brightness(1) invert(0);">
                 <div class="lh-1">
                     <span class="fw-black italic text-uppercase d-block" style="letter-spacing: 0px; font-size: 1.5rem;">
-                        <span class="text-white">{{ $settings['brand_white_text'] ?? 'SUPERBIKE' }}</span>
+                        <span class="text-white">{{ $settings['brand_white_text'] ?? 'MOTO' }}</span><span class="text-primary-red">{{ $settings['brand_red_text'] ?? 'X' }}</span>
                     </span>
-                    <span class="text-primary-red fw-bold italic text-uppercase" style="letter-spacing: 2px; font-size: 0.9rem;">{{ $settings['brand_red_text'] ?? 'COMMUNITY' }}</span>
+                    <span class="text-primary-red fw-bold italic text-uppercase" style="letter-spacing: 2px; font-size: 0.9rem;">CODE</span>
                 </div>
             </a>
             
@@ -48,6 +48,7 @@
                     <li class="nav-item px-3"><a class="nav-link" href="{{ route('events') }}">Events</a></li>
                     <li class="nav-item px-3"><a class="nav-link" href="{{ route('gallery') }}">Galleries</a></li>
                     <li class="nav-item px-3"><a class="nav-link" href="{{ route('blogs') }}">Blog</a></li>
+                    <li class="nav-item px-3"><a class="nav-link" href="{{ route('testimonials') }}">Testimonials</a></li>
                     <li class="nav-item px-3"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
                 </ul>
                 <div class="d-flex align-items-center gap-2">
@@ -76,7 +77,7 @@
                 <a href="#" class="text-decoration-none text-white-50 hover-white">Terms of Service</a>
             </div>
             <p class="text-white-50 small mb-0">
-                &copy; {{ date('Y') }} <span class="text-white">{{ $settings['copyright_text'] ?? 'SUPERBIKE COMMUNITY' }}</span>. ALL RIGHTS RESERVED.
+                &copy; {{ date('Y') }} <span class="text-white">{{ $settings['copyright_text'] ?? 'MOTOXCODE' }}</span>. ALL RIGHTS RESERVED.
             </p>
         </div>
     </footer>

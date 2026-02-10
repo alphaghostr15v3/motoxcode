@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUPERBIKE COMMUNITY | Admin Dashboard</title>
+    <title>MOTOXCODE | Admin Dashboard</title>
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
             <div class="brand-logomark" style="width: 38px; height: 32px; background: var(--primary-red); clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%); display: flex; align-items: center; justify-content: center; color: #ffffff;">
                 <i class="fas fa-motorcycle" style="font-size: 14px; margin-left: -4px;"></i>
             </div>
-            <h4 class="fw-black m-0 italic" style="letter-spacing: -1px; line-height: 1;">SUPERBIKE <br><span class="text-red fs-6">COMMUNITY</span></h4>
+            <h4 class="fw-black m-0 italic" style="letter-spacing: -1px; line-height: 1;">MOTO<span class="text-red">X</span><br><span class="text-red fs-6">CODE</span></h4>
         </div>
         
         <ul class="sidebar-menu custom-scrollbar">

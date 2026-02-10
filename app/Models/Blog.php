@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     protected $fillable = ['title', 'slug', 'content', 'author', 'image', 'is_published', 'published_at'];
+
+    protected $casts = [
+        'published_at' => 'datetime',
+        'is_published' => 'boolean',
+    ];
 }

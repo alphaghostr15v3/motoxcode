@@ -9,7 +9,7 @@
                 <div class="col-lg-10 hero-content">
                     <h2 class="text-white fw-bold text-uppercase italic mb-0 text-shadow-heavy">{{ $settings['hero_top_title'] ?? 'WELCOME TO THE' }}</h2>
                     <h1 class="text-uppercase text-white italic fw-black mb-4 text-shadow-heavy">
-                        <span class="text-primary-red">{{ $settings['hero_main_red_text'] ?? 'SUPERBIKE' }}</span> {{ $settings['hero_main_white_text'] ?? 'COMMUNITY' }}
+                        <span class="text-primary-red">{{ $settings['hero_main_red_text'] ?? 'MOTO' }}</span><span class="text-white">{{ $settings['hero_main_white_text'] ?? 'X' }}</span><span class="text-primary-red">{{ $settings['hero_main_red_text'] ?? 'CODE' }}</span>
                     </h1>
                     <h4 class="text-white fw-bold text-uppercase italic mb-5 text-shadow-heavy" style="letter-spacing: 3px;">{{ $settings['hero_subtitle'] ?? 'RIDE. CONNECT. EXPLORE.' }}</h4>
                     

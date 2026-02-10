@@ -3,7 +3,7 @@
 @section('content')
 <main id="blogs-page">
     <!-- Blog Hero -->
-    <section class="hero-section py-0 cinematic-overlay" style="background: url('https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&w=1920&q=80');">
+    <section class="hero-section py-0 cinematic-overlay" style="background: url('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
         <div class="container text-center py-5" style="min-height: 50vh; display: flex; flex-direction: column; justify-content: center;">
             <h1 class="display-3 fw-black italic text-uppercase text-white lh-1 mb-3 text-shadow-heavy">
                 COMMUNITY <span class="text-primary-red">STORIES</span>
@@ -22,7 +22,7 @@
                 <div class="col-md-4">
                     <div class="blog-card glass-card border-secondary h-100 transition-all">
                         <div class="blog-image-wrapper position-relative overflow-hidden">
-                            <img src="{{ $blog->image ? asset($blog->image) : 'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=800&q=80' }}" class="img-fluid w-100" alt="{{ $blog->title }}" style="height: 250px; object-fit: cover;">
+                            <img src="{{ $blog->image ? asset($blog->image) : 'https://images.unsplash.com/photo-1558981285-6f0c94958bb6?q=80&w=800&auto=format&fit=crop' }}" class="img-fluid w-100" alt="{{ $blog->title }}" style="height: 250px; object-fit: cover;">
                             <div class="blog-date position-absolute top-0 end-0 bg-primary-red text-white p-2 fw-bold italic small">
                                 {{ $blog->published_at ? \Carbon\Carbon::parse($blog->published_at)->format('M d') : $blog->created_at->format('M d') }}
                             </div>

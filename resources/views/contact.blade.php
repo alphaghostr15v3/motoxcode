@@ -27,7 +27,7 @@
                             </div>
                             <h4 class="text-white fw-bold italic text-uppercase mb-0">Our Base</h4>
                         </div>
-                        <p class="text-white-50 mb-0">{{ $settings['contact_address'] ?? 'Riders Hub, 123 Superbike Drive, Speedway City, SC 45678' }}</p>
+                        <p class="text-white-50 mb-0">{{ $settings['contact_address'] ?? 'Riders Hub, 123 MotoX Drive, Speedway City, SC 45678' }}</p>
                     </div>
 
                     <div class="contact-info-card mb-4 p-4 border border-dark bg-dark-soft">
@@ -37,7 +37,7 @@
                             </div>
                             <h4 class="text-white fw-bold italic text-uppercase mb-0">Email Us</h4>
                         </div>
-                        <p class="text-white-50 mb-0">{{ $settings['contact_email_primary'] ?? 'support@superbikecommunity.com' }}<br>{{ $settings['contact_email_secondary'] ?? 'info@superbikecommunity.com' }}</p>
+                        <p class="text-white-50 mb-0">{{ $settings['contact_email_primary'] ?? 'support@motoxcode.com' }}<br>{{ $settings['contact_email_secondary'] ?? 'info@motoxcode.com' }}</p>
                     </div>
 
                     <div class="contact-info-card p-4 border border-dark bg-dark-soft">

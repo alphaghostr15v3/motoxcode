@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Superbike Community | Admin Login</title>
+    <title>MOTOXCODE | Admin Login</title>
     <!-- Modern Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <!-- Bootstrap 5 -->
@@ -175,8 +175,8 @@
                 <i class="fas fa-motorcycle"></i>
             </div>
             <div class="lh-1">
-                <span class="brand-text">SUPERBIKE</span>
-                <span class="brand-subtext">COMMUNITY</span>
+                <span class="brand-text">MOTO<span class="text-red">X</span></span>
+                <span class="brand-subtext">CODE</span>
             </div>
         </div>
 
@@ -195,7 +195,7 @@
 
             <div class="mb-3">
                 <label class="form-label">Admin Email</label>
-                <input type="email" name="email" class="form-control" placeholder="admin@superbike.com" required value="{{ old('email') }}">
+                <input type="email" name="email" class="form-control" placeholder="admin@motoxcode.com" required value="{{ old('email') }}">
             </div>
 
             <div class="mb-4">

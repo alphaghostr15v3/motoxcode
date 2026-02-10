@@ -19,7 +19,7 @@
                 <div class="col-md-6">
                     <h2 class="section-title text-white mb-4">OUR <span class="text-primary-red">MISSION</span></h2>
                     <p class="lead text-primary-red italic fw-bold">{{ $settings['about_mission_highlight'] ?? 'Connecting riders, championing safety, and celebrating the thrill of the ride.' }}</p>
-                    <p class="text-white-50">{{ $settings['about_mission_text'] ?? 'Founded with a passion for high-performance motorcycles, the Superbike Community is more than just a club. We are a global brotherhood of enthusiasts dedicated to promoting responsible riding and technical excellence.' }}</p>
+                    <p class="text-white-50">{{ $settings['about_mission_text'] ?? 'Founded with a passion for high-performance motorcycles, MOTOXCODE is more than just a club. We are a global brotherhood of enthusiasts dedicated to promoting responsible riding and technical excellence.' }}</p>
                     <div class="row mt-4">
                         <div class="col-6">
                             <h3 class="text-white fw-black italic mb-0">500+</h3>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="p-2 border border-dark rounded-0 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1599819861270-d29871630043?auto=format&fit=crop&w=800&q=80" class="img-fluid w-100" alt="Rider at Sunset">
+                        <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100" alt="Rider at Sunset">
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
     <section class="bg-black py-5 border-top border-dark">
         <div class="container text-center">
             <h2 class="section-title text-white mb-4">READY TO <span class="text-primary-red">JOIN THE TRAIL?</span></h2>
-            <p class="text-muted mb-5 col-lg-8 mx-auto">Experience the thrill of riding with the world's most passionate superbike community. Sign up today and gain access to exclusive events, technical forums, and a global network of riders.</p>
+            <p class="text-muted mb-5 col-lg-8 mx-auto">Experience the thrill of riding with the world's most passionate motorcycle community. Sign up today and gain access to exclusive events, technical forums, and a global network of riders.</p>
             <div class="d-flex justify-content-center gap-3">
                 <a href="{{ url('/#join') }}" class="btn btn-superbike px-5">Join the Community</a>
                 <a href="{{ url('/#events') }}" class="btn btn-outline-superbike px-5">View Upcoming Events</a>

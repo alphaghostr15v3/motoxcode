@@ -89,6 +89,13 @@ class HomeController extends Controller
         return view('blog_show', compact('settings', 'blog', 'recentBlogs'));
     }
 
+    public function testimonials()
+    {
+        $settings = Setting::pluck('value', 'key')->toArray();
+        $testimonials = Testimonial::where('is_active', true)->latest()->get();
+        return view('testimonials', compact('settings', 'testimonials'));
+    }
+
     public function join()
     {
         $settings = Setting::pluck('value', 'key')->toArray();
