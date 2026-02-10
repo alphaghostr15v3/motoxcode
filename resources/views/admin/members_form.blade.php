@@ -54,6 +54,11 @@
                     </select>
                 </div>
 
+                <div class="col-md-6">
+                    <label class="form-label text-muted small text-uppercase fw-bold">Password {{ isset($member) ? '(Leave blank to keep current)' : '' }}</label>
+                    <input type="password" name="password" class="form-control admin-input" {{ isset($member) ? '' : 'required' }}>
+                </div>
+
                 <div class="col-12">
                     <label class="form-label text-muted small text-uppercase fw-bold">Bio</label>
                     <textarea name="bio" class="form-control admin-input" rows="3">{{ old('bio', $member->bio ?? '') }}</textarea>

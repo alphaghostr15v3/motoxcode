@@ -13,9 +13,7 @@ Route::get('/testimonials', [\App\Http\Controllers\HomeController::class, 'testi
 Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 Route::get('/join', [\App\Http\Controllers\HomeController::class, 'join'])->name('join');
 
-Route::get('/login', function () {
-    return redirect()->route('admin.login');
-})->name('login');
+Route::get('/login', [\App\Http\Controllers\Member\MemberAuthController::class, 'showLoginForm'])->name('login');
 
 Route::post('/contact', [\App\Http\Controllers\MessageController::class, 'store'])->name('contact.submit');
 
@@ -109,5 +107,16 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         'update' => 'admin.users.update',
         'destroy' => 'admin.users.destroy',
     ]);
+});
+
+// Member Routes
+Route::get('/member/login', [\App\Http\Controllers\Member\MemberAuthController::class, 'showLoginForm'])->name('member.login');
+Route::post('/member/login', [\App\Http\Controllers\Member\MemberAuthController::class, 'login'])->name('member.login.submit');
+Route::post('/member/logout', [\App\Http\Controllers\Member\MemberAuthController::class, 'logout'])->name('member.logout');
+
+Route::prefix('member')->middleware('auth:members')->group(function () {
+    Route::get('/dashboard', [\App\Http\Controllers\Member\MemberDashboardController::class, 'dashboard'])->name('member.dashboard');
+    Route::get('/profile', [\App\Http\Controllers\Member\MemberDashboardController::class, 'profile'])->name('member.profile');
+    Route::post('/profile', [\App\Http\Controllers\Member\MemberDashboardController::class, 'updateProfile'])->name('member.profile.update');
 });
 

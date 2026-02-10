@@ -26,10 +26,13 @@ class MemberController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:members',
             'role' => 'required',
+            'password' => 'required|min:6',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         
         $data = $request->except(['_token', 'photo']);
+        $data['password'] = \Illuminate\Support\Facades\Hash::make($request->password);
+        $data['social_links'] = json_encode([]);
         
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
@@ -60,11 +63,16 @@ class MemberController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:members,email,'.$id,
             'role' => 'required',
+            'password' => 'nullable|min:6',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         
         $member = \App\Models\Member::findOrFail($id);
-        $data = $request->except(['_token', 'photo']);
+        $data = $request->except(['_token', 'photo', 'password']);
+        
+        if ($request->filled('password')) {
+            $data['password'] = \Illuminate\Support\Facades\Hash::make($request->password);
+        }
         
         if ($request->hasFile('photo')) {
             // Delete old file
