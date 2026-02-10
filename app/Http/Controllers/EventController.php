@@ -24,6 +24,7 @@ class EventController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'category' => 'required|in:Track Day,Tour,Meet,Training,Other',
             'date' => 'required|date',
             'status' => 'required|in:upcoming,completed,cancelled',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -58,6 +59,7 @@ class EventController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'category' => 'required|in:Track Day,Tour,Meet,Training,Other',
             'date' => 'required|date',
             'status' => 'required|in:upcoming,completed,cancelled',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',

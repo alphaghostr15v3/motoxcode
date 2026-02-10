@@ -22,6 +22,18 @@
                 </div>
 
                 <div class="col-md-4">
+                    <label class="form-label text-muted small text-uppercase fw-bold">Category</label>
+                    <select name="category" class="form-select admin-input @error('category') is-invalid @enderror">
+                        <option value="Track Day" {{ (old('category', $event->category ?? '') == 'Track Day') ? 'selected' : '' }}>Track Day</option>
+                        <option value="Tour" {{ (old('category', $event->category ?? '') == 'Tour') ? 'selected' : '' }}>Tour</option>
+                        <option value="Meet" {{ (old('category', $event->category ?? '') == 'Meet') ? 'selected' : '' }}>Meet</option>
+                        <option value="Training" {{ (old('category', $event->category ?? '') == 'Training') ? 'selected' : '' }}>Training</option>
+                        <option value="Other" {{ (old('category', $event->category ?? '') == 'Other') ? 'selected' : '' }}>Other</option>
+                    </select>
+                    @error('category') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
+                </div>
+
+                <div class="col-md-4">
                      <label class="form-label text-muted small text-uppercase fw-bold">Status</label>
                     <select name="status" class="form-select admin-input @error('status') is-invalid @enderror">
                         <option value="upcoming" {{ (old('status', $event->status ?? '') == 'upcoming') ? 'selected' : '' }}>Upcoming</option>
